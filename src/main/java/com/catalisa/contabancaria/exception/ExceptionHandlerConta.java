@@ -1,6 +1,9 @@
 package com.catalisa.contabancaria.exception;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
@@ -24,11 +27,16 @@ public class ExceptionHandlerConta extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, new MensagemErro(mensagemUser, mensagemDev), headers, HttpStatus.BAD_REQUEST, request);
     }
 
-    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Getter
+    @Setter
     public static class MensagemErro {
-        private String mensagemDoUser;
+
+        private String mensagemDoUsuario;
         private String mensagemDoDev;
 
-
     }
+
+
 }
